@@ -1,24 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-
+let name="tejas";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React with Tejas
-        </a>
-      </header>
+    <>
+    <nav>
+      <li>Home</li>
+      <li>About</li>
+      <li>Contact me</li>
+    </nav>
+    <h1 className="name">Hello {name}</h1>
+    <div className="content">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error saepe eveniet labore? Eius, facere esse reprehenderit a perspiciatis rem, harum veritatis non asperiores dolore, nisi facilis atque maiores! Eveniet laboriosam ex qui maiores sequi odit quis unde molestias tempore ipsam!
     </div>
+    </>
   );
 }
 
