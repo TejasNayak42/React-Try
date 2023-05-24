@@ -1,10 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="/">
-      Ditto
+      {props.title}
     </a>
     <button
       className="navbar-toggler"
@@ -22,7 +23,7 @@ export default function Navbar() {
       <ul className="navbar-nav col-md-8">
         <li className="nav-item active">
           <a className="nav-link" href="/">
-            Home <span className="sr-only"></span>
+            {props.home} <span className="sr-only"></span>
           </a>
         </li>
         <li className="nav-item">
@@ -56,7 +57,7 @@ export default function Navbar() {
           </div>
         </li>
       </ul>
-      
+
       <input
         className="form-control mr-sm-2"
         type="search"
@@ -73,3 +74,13 @@ export default function Navbar() {
   </nav>
   )
 }
+
+Navbar.propTypes={
+    title:PropTypes.string.isRequired,
+    home:PropTypes.string
+}
+
+Navbar.defaultProps={
+    title:'set title here',
+    home:'home here?'
+};
