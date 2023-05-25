@@ -10,9 +10,9 @@ export default function Form (props) {
     // console.log(" Changing");
     setText(event.target.value)
   };
-  const [text, setText] = useState("Enter text here");
+  const [text, setText] = useState('Enter text here');
   return (
-   
+<>   
   <div className="form-group">
     <h2>
       {props.heading} 
@@ -34,6 +34,20 @@ export default function Form (props) {
       </button>
   </div>
 
+  <div 
+    className="summarycontainer my-4"
+    >
+      <h3>Summary</h3>
+      <p>
+      {text.trim() === "" ? 0 : text.trim().split(/\s+/).length} words and {text.length} characters.
+      Time taken to read :{0.008*text.trim().split(/\s+/).length}mins
+      </p>
+      <h3>Preview</h3>
+      <p>
+        {text}
+      </p>
+  </div>
+</>
   )
 }
 
