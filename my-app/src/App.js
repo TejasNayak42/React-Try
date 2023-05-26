@@ -1,15 +1,18 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Form from './components/Form';
-
+import About from './components/About';
 
 function App() {
   return (
     <>
     <Navbar title="Tejas" home="Home"/>
-    <div className="container">
+    {/* <div className="container">
       <Form heading="Enter the Text below"/>
-    </div>
+    </div> */}
+    <About/>
+
+    
   </>
   );
 }

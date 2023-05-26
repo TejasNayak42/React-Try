@@ -1,16 +1,38 @@
 import React,{useState} from 'react'
 
 export default function Form (props) {
-  const upClicked =()=>{
-    // console.log("UpperCase'd "+text)
+  const handleUP =()=>{
     let newText= text.toUpperCase()
-    setText(newText);
+    setText(newText)
   }
+
+  const handleLow =()=>{
+    let newText= text.toLowerCase()
+    setText(newText)
+  }
+
+  const handleSC = () => {
+    let newText = text.charAt(0).toUpperCase() + text.slice(1);
+    const sentenceRegex = /\.\s*(\w)/g;
+    newText = newText.replace(sentenceRegex, (match, letter) => match.replace(letter, letter.toUpperCase()));
+    setText(newText)
+  }
+
+  const handleCopy =()=>{
+   navigator.clipboard.writeText(text)
+  }
+  
+  const handleClear =()=>{
+    let newText= ''
+    setText(newText)
+  }
+
   const onHandled =(event)=>{
-    // console.log(" Changing");
     setText(event.target.value)
-  };
+  }
+
   const [text, setText] = useState('Enter text here');
+  
   return (
 <>   
   <div className="form-group">
@@ -27,10 +49,38 @@ export default function Form (props) {
       ></textarea>
     </div>
       <button 
-        className="btn btn-primary mt-2"
-        onClick={upClicked}
+        className="btn btn-primary mt-2 mx-2"
+        onClick={handleUP}
         >
-           Convert the Text 
+           UpperCase 
+      </button>
+
+      <button 
+        className="btn btn-primary mt-2 mx-2"
+        onClick={handleLow}
+        >
+           Lowercase
+      </button>
+
+      <button 
+        className="btn btn-primary mt-2 mx-2"
+        onClick={handleSC}
+        >
+           Sentence Case
+      </button>
+
+      <button 
+        className="btn btn-primary mt-2 mx-2"
+        onClick={handleCopy}
+        >
+           Copy to Clipboard
+      </button>
+
+      <button 
+        className="btn btn-primary mt-2 mx-2"
+        onClick={handleClear}
+        >
+           Clear
       </button>
   </div>
 
@@ -40,7 +90,9 @@ export default function Form (props) {
       <h3>Summary</h3>
       <p>
       {text.trim() === "" ? 0 : text.trim().split(/\s+/).length} words and {text.length} characters.
-      Time taken to read :{0.008*text.trim().split(/\s+/).length}mins
+      </p>
+      <p>
+      Time taken to read :{0.004*text.trim().split(/\s+/).length} mins
       </p>
       <h3>Preview</h3>
       <p>
