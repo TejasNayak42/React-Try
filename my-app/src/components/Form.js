@@ -36,7 +36,7 @@ export default function Form (props) {
     setText(event.target.value)
   }
 
-  const [text, setText] = useState('Enter text here');
+  const [text, setText] = useState('');
   
   return (
 <>   
@@ -114,7 +114,7 @@ export default function Form (props) {
       </p>
       <h3>Preview</h3>
       <p>
-        {text}
+        {text.length>0?text:'Enter text above to preview here'}
       </p>
   </div>
 </>
