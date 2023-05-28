@@ -10,7 +10,7 @@ export default function Form (props) {
     let newText= text.toLowerCase()
     setText(newText)
   }
-
+  
   const handleSC = () => {
     let newText = text.charAt(0).toUpperCase() + text.slice(1);
     const sentenceRegex = /\.\s*(\w)/g;
@@ -21,9 +21,14 @@ export default function Form (props) {
   const handleCopy =()=>{
    navigator.clipboard.writeText(text)
   }
-  
+ 
   const handleClear =()=>{
     let newText= ''
+    setText(newText)
+  }
+
+  const handleExtraSpace =()=>{
+    let newText = text.replace(/\s+/g, ' ').trim();
     setText(newText)
   }
 
@@ -35,11 +40,16 @@ export default function Form (props) {
   
   return (
 <>   
-  <div className="form-group">
+  <div 
+    className="form-group"
+    style={{color: props.mode==='light'?'black':'white'}}
+  >
     <h2>
       {props.heading} 
     </h2>
-    <div>
+    <div
+     
+    >
       <textarea 
         className="form-control" 
         value={text}
@@ -71,6 +81,13 @@ export default function Form (props) {
 
       <button 
         className="btn btn-primary mt-2 mx-2"
+        onClick={handleExtraSpace}
+        >
+           Remove Extra Space
+      </button>
+
+      <button 
+        className="btn btn-primary mt-2 mx-2"
         onClick={handleCopy}
         >
            Copy to Clipboard
@@ -81,13 +98,14 @@ export default function Form (props) {
         onClick={handleClear}
         >
            Clear
-      </button>
+      </button>   
   </div>
 
   <div 
-    className="summarycontainer my-4"
+    className="summarycontainer my-4 "
+    style={{color: props.mode==='dark'? 'light':'black'}}
     >
-      <h3>Summary</h3>
+      <h3 >Summary</h3>
       <p>
       {text.trim() === "" ? 0 : text.trim().split(/\s+/).length} words and {text.length} characters.
       </p>
