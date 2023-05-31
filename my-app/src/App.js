@@ -14,6 +14,9 @@ function App() {
       msg:message,
       type:type
     })
+    setTimeout(()=>{
+      setAlert(null)
+    },3000)
   }
 
   const toggleMode=()=>{
@@ -32,10 +35,10 @@ function App() {
     <>
     <Navbar title="Tejas" home="Home" mode={mode} toggleMode={toggleMode}/>
 
-    <Alert alert={alert}/>
+    {alert && <Alert alert={alert}/>}
 
     <div className="container">
-      <Form heading="Enter the Text below"/>
+      <Form showAlert={showAlert} heading="Enter the Text below"/>
     </div>
 
     {/* <About/> */}
