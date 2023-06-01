@@ -33,7 +33,7 @@ function App() {
   }
   return (
     <>
-    <Navbar title="Tejas" home="Home" mode={mode} toggleMode={toggleMode}/>
+    <Navbar title="TeXtO" home="Home" mode={mode} toggleMode={toggleMode}/>
 
     {alert && <Alert alert={alert}/>}
 

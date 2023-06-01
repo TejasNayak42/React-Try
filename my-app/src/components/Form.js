@@ -4,11 +4,13 @@ export default function Form(props) {
   const handleUP = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert(" Text Uppercased ","success")
   };
 
   const handleLow = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert(" Text LowerCased ","success")
   };
 
   const handleSC = () => {
@@ -18,6 +20,7 @@ export default function Form(props) {
       match.replace(letter, letter.toUpperCase())
     );
     setText(newText);
+    props.showAlert(" Does'nt it look nice now?","success")
   };
 
   const handleCopy = () => {
@@ -28,13 +31,13 @@ export default function Form(props) {
   const handleClear = () => {
     let newText = '';
     setText(newText);
-    props.showAlert(" Copied to Clipboard","success")
+    props.showAlert(" Cleared all text","success")
   };
 
   const handleExtraSpace = () => {
     let newText = text.replace(/\s+/g, ' ').trim();
     setText(newText);
-    props.showAlert(" Copied to Clipboard","success")
+    props.showAlert(" Does'nt it look nice now?","success")
   };
 
   const onHandled = (event) => {
