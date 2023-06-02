@@ -24,11 +24,19 @@ function App() {
       setMode('dark')
       document.body.style.backgroundColor='grey'
       showAlert('Dark mode has been enabled','success')
+      document.title='TeXtO -Dark'
+      setInterval(()=>{
+        document.title='TeXtO is best'
+      },2000)
+      setInterval(()=>{
+        document.title='Tejas is great'
+      },1500)
     }
     else{
       setMode('light')
       document.body.style.backgroundColor='white'
       showAlert('Light mode has been enabled','success')
+      document.title='TeXtO -Light'
     }
   }
   return (
