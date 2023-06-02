@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 export default function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
-    <a className="navbar-brand" href="/">
+    <Link className="navbar-brand" to="/">
       {props.title}
-    </a>
+    </Link>
     <button
       className="navbar-toggler"
       type="button"
@@ -22,19 +23,19 @@ export default function Navbar(props) {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav col-md-8">
         <li className="nav-item active">
-          <a className="nav-link" href="/">
+          <Link className="nav-link" to="/">
             {props.home} <span className="sr-only"></span>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/">
+          <Link className="nav-link" to="/About">
             About
-          </a>
+          </Link>
         </li>
         <li className="nav-item dropdown">
-          <a
+          <Link
             className="nav-link dropdown-toggle"
-            href="/"
+            to="/"
             id="navbarDropdown"
             role="button"
             data-toggle="dropdown"
@@ -42,18 +43,18 @@ export default function Navbar(props) {
             aria-expanded="false"
           >
             Dropdown
-          </a>
+          </Link>
           <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a className="dropdown-item" href="/">
+            <Link className="dropdown-item" to="/">
               Action
-            </a>
-            <a className="dropdown-item" href="/">
+            </Link>
+            <Link className="dropdown-item" to="/">
               Another action
-            </a>
+            </Link>
             <div className="dropdown-divider"></div>
-            <a className="dropdown-item" href="/">
+            <Link className="dropdown-item" to="/">
               Something else here
-            </a>
+            </Link>
           </div>
         </li>
       </ul>
