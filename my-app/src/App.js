@@ -24,12 +24,13 @@ function App() {
     },3000)
   }
 
-  const toggleMode=()=>{
+  const toggleMode=(cls)=>{
+    document.body.classList.add('bg-'+cls)
     if (mode === 'light'){
       setMode('dark')
-      document.body.style.backgroundColor='grey'
-      document.body.style.color='white'
-      showAlert('Dark mode has been enabled','success')
+      // document.body.style.backgroundColor='grey'
+      document.body.style.color='black'
+      showAlert( '',cls+' been enabled','success')
       document.title='TeXtO -Dark'
 
       // This is to Change the info of title for needed amount of time.
@@ -43,8 +44,8 @@ function App() {
     }
     else{
       setMode('light')
-      document.body.style.backgroundColor='white'
-      document.body.style.color='black'
+      // document.body.style.backgroundColor='white'
+      // document.body.style.color='black'
 
       showAlert('Light mode has been enabled','success')
       document.title='TeXtO -Light'

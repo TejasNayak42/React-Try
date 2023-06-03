@@ -37,7 +37,7 @@ export default function Form(props) {
   const handleExtraSpace = () => {
     let newText = text.replace(/\s+/g, ' ').trim();
     setText(newText);
-    props.showAlert(" Does'nt it look nice now?","success")
+    props.showAlert(" Doesn't it look nice now?","success")
   };
 
   const onHandled = (event) => {
