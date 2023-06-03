@@ -48,7 +48,7 @@ export default function Form(props) {
 
   return (
     <>
-      <div className="form-group" style={{ color: props.mode === 'dark' ? 'text-white' : 'text-black' }}>
+      <div className="form-group" >
         <h2>{props.heading}</h2>
         <div>
           <textarea
@@ -59,40 +59,41 @@ export default function Form(props) {
             rows="5"
           ></textarea>
         </div>
-        <button className="btn btn-primary mt-2 mx-2" onClick={handleUP}>
+        <button disabled={text.length===0} className="btn btn-primary mt-2 mx-2" onClick={handleUP}>
           UpperCase
         </button>
 
-        <button className="btn btn-primary mt-2 mx-2" onClick={handleLow}>
+        <button disabled={text.length===0} className="btn btn-primary mt-2 mx-2" onClick={handleLow}>
           Lowercase
         </button>
 
-        <button className="btn btn-primary mt-2 mx-2" onClick={handleSC}>
+        <button disabled={text.length===0} className="btn btn-primary mt-2 mx-2" onClick={handleSC}>
           Sentence Case
         </button>
 
-        <button className="btn btn-primary mt-2 mx-2" onClick={handleExtraSpace}>
+        <button disabled={text.length===0} className="btn btn-primary mt-2 mx-2" onClick={handleExtraSpace}>
           Remove Extra Space
         </button>
 
-        <button className="btn btn-primary mt-2 mx-2" onClick={handleCopy}>
+        <button disabled={text.length===0} className="btn btn-primary mt-2 mx-2" onClick={handleCopy}>
           Copy to Clipboard
         </button>
 
-        <button className="btn btn-primary mt-2 mx-2" onClick={handleClear}>
+        <button disabled={text.length===0} className="btn btn-primary mt-2 mx-2" onClick={handleClear}>
           Clear
         </button>
       </div>
 
       <div
-        className="summary-container my-4"
-        style={{ color: props.mode === 'dark' ? 'white' : 'black' }}
+        className="summary-container "
+        style={{ 
+          color: props.mode === 'dark' ? 'text-white' : 'text-black' }}
       >
         <h3>Summary</h3>
         <p>
           {text.trim() === '' ? 0 : text.trim().split(/\s+/).length} words and {text.length} characters.
         </p>
-        <p>Time taken to read: {0.004 * text.trim().split(/\s+/).length} mins</p>
+        <p>Time taken to read: {text.trim() === '' ? 0 : 0.004 * text.trim().split(/\s+/).length} mins</p>
         <h3>Preview</h3>
         <p>{text.length > 0 ? text : 'Enter text above to preview here'}</p>
       </div>

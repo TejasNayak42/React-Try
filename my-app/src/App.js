@@ -8,7 +8,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link,
 } from "react-router-dom";
 
 function App() {
@@ -29,6 +28,7 @@ function App() {
     if (mode === 'light'){
       setMode('dark')
       document.body.style.backgroundColor='grey'
+      document.body.style.color='white'
       showAlert('Dark mode has been enabled','success')
       document.title='TeXtO -Dark'
 
@@ -44,6 +44,8 @@ function App() {
     else{
       setMode('light')
       document.body.style.backgroundColor='white'
+      document.body.style.color='black'
+
       showAlert('Light mode has been enabled','success')
       document.title='TeXtO -Light'
     }
@@ -55,13 +57,15 @@ function App() {
       
       {alert && <Alert alert={alert}/>}
       <Routes>
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<About  mode={mode}/>} />
+        
         <Route 
         path="/" 
         element={
           <div className="container">
               <Form showAlert={showAlert} heading="Enter the Text below"/>
-          </div>} />
+          </div>} 
+        />
        
       </Routes>
     </BrowserRouter>    
